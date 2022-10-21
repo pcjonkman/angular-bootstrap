@@ -3,7 +3,7 @@
 Local versions: Node 16.15.1 / NPM 8.11.0 / Angular CLI 14.0.5
 
 - npm install -g @angular/cli
-- ng new app
+- ng new angular-bootstrap
     - Routing Y
     - SCCS
 - npm install
