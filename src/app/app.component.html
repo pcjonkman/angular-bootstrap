@@ -62,6 +62,1883 @@
       <button class="btn btn-sm btn-outline-primary" (click)="open(demoModal)">Launch demo modal</button>
     </div>
   </div>
+
+  <div class="row my-3">
+    <hr>
+    <h2>NgBootstrap</h2>
+    <p>
+      <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a>
+    </p>
+    <p>
+      <a href="https://ng-bootstrap.github.io/" target="_blank">https://ng-bootstrap.github.io/</a>
+    </p>
+    <hr>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Accordion</h2>
+        </div>
+        <div class="card-body">
+          <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel title="Simple">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <span>&#9733; <b>Fancy</b> title &#9733;</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel title="Disabled" [disabled]="true">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+          <hr>
+
+          <ngb-accordion #a="ngbAccordion" activeIds="custom-panel-1">
+            <ngb-panel id="custom-panel-1">
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="accordion-button custom-header justify-content-between" [class.collapsed]="!opened">
+                  <p class="m-0">First panel - {{ opened ? 'opened' : 'collapsed' }}</p>
+                  <button ngbPanelToggle class="btn btn-link p-0">Toggle first</button>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="accordion-button custom-header justify-content-between" [class.collapsed]="!opened">
+                  <p class="m-0">Second panel</p>
+                  <div>
+                    <button ngbPanelToggle class="btn btn-sm btn-outline-primary ms-2">Toggle second</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary ms-2" (click)="disabled = !disabled">
+                      {{ disabled ? 'En' : 'Dis' }}able third
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger ms-2" (click)="a.collapseAll()">Collapse all</button>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel [disabled]="disabled" [cardClass]="disabled ? 'disabled' : ''">
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="accordion-button custom-header" [class.collapsed]="!opened">
+                  <button ngbPanelToggle class="p-0 btn btn-link container-fluid text-start ps-0">Third panel</button>
+                  <p *ngIf="disabled" class="text-muted m-0 small">[I'm&nbsp;disabled]</p>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelHeader>
+                <button ngbPanelToggle class="accordion-button">Default-looking "custom" panel</button>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+          <hr>
+
+          <ngb-accordion [closeOthers]="true" activeIds="static-1">
+            <ngb-panel id="static-1" title="Simple">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-2">
+              <ng-template ngbPanelTitle>
+                <span>&#9733; <b>Fancy</b> title &#9733;</span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-3" title="Disabled" [disabled]="true">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+          <hr>
+
+          <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel id="toggle-1" title="First panel">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="toggle-2" title="Second">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+          <hr/>
+
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="acc.toggle('toggle-1')">Toggle first</button>
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="acc.toggle('toggle-2')">Toggle second</button>
+
+          <hr>
+
+          <ngb-accordion #aAccordion="ngbAccordion" activeIds="custom-panel-1">
+            <ngb-panel id="custom-panel-1">
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="accordion-button custom-header justify-content-between" [class.collapsed]="!opened">
+                  <p class="m-0">First panel - {{ opened ? 'opened' : 'collapsed' }}</p>
+                  <button ngbPanelToggle class="btn btn-link p-0">Toggle first</button>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="accordion-button custom-header justify-content-between" [class.collapsed]="!opened">
+                  <p class="m-0">Second panel</p>
+                  <div>
+                    <button ngbPanelToggle class="btn btn-sm btn-outline-primary ms-2">Toggle second</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary ms-2" (click)="disabledPanel = !disabledPanel">
+                      {{ disabledPanel ? 'En' : 'Dis' }}able third
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger ms-2" (click)="aAccordion.collapseAll()">Collapse all</button>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel [disabled]="disabledPanel" [cardClass]="disabledPanel ? 'disabled' : ''">
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="accordion-button custom-header" [class.collapsed]="!opened">
+                  <button ngbPanelToggle class="p-0 btn btn-link container-fluid text-start ps-0">Third panel</button>
+                  <p *ngIf="disabledPanel" class="text-muted m-0 small">[I'm&nbsp;disabled]</p>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelHeader>
+                <button ngbPanelToggle class="accordion-button">Default-looking "custom" panel</button>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+          <hr>
+
+          <ngb-accordion (panelChange)="beforeChange($event)">
+            <ngb-panel id="preventchange-1" title="Simple">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="preventchange-2" title="I can't be toggled...">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="preventchange-3" title="I can be opened, but not closed...">
+              <ng-template ngbPanelContent>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                labore sustainable VHS.
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Alert</h2>
+        </div>
+        <div class="card-body">
+          <p>
+            <ngb-alert [dismissible]="false">
+              <strong>Warning!</strong> Better check yourself, you're not looking too good.
+            </ngb-alert>
+          </p>
+          <p *ngFor="let alert of alerts">
+            <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+          </p>
+          <p>
+            <button type="button" class="btn btn-primary" (click)="reset()">Reset alerts</button>
+          </p>
+          <p>
+            Show a self-closing success message that disappears after 5 seconds.
+          </p>
+          <p>
+            <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
+          </p>
+          <p>
+            <button class="btn btn-primary" (click)="changeSuccessMessage()">Change message</button>
+          </p>
+          <p>
+            <ngb-alert type="custom" [dismissible]="false"><strong>Whoa!</strong> This is a custom alert.</ngb-alert>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Carousel</h2>
+        </div>
+        <div class="card-body">
+          <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random first slide">
+              </div>
+              <div class="carousel-caption">
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide">
+              </div>
+              <div class="carousel-caption">
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide">
+              </div>
+              <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+
+          <p></p>
+
+          <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+            <ng-template ngbSlide *ngFor="let image of images">
+              <div class="picsum-img-wrapper">
+                <img [src]="image" alt="Random slide">
+              </div>
+              <div class="carousel-caption">
+                <h3>No mouse navigation</h3>
+                <p>This carousel hides navigation arrows and indicators.</p>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+
+          <p></p>
+          <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+            <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+            <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Collapse</h2>
+        </div>
+        <div class="card-body">
+          <p>
+            <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+              aria-controls="collapseExample">
+              Toggle
+            </button>
+          </p>
+          <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Datepicker</h2>
+        </div>
+        <div class="card-body">
+          <p>Simple datepicker</p>
+
+          <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+          <hr/>
+
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="selectToday()">Select Today</button>
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo()">To current month</button>
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+
+          <hr/>
+
+          <pre>Month: {{ date.month }}.{{ date.year }}</pre>
+          <pre>Model: {{ model | json }}</pre>
+
+          <hr/>
+
+          <div>
+            <p>Multiple months</p>
+
+            <ngb-datepicker [displayMonths]="displayMonths" [navigation]="navigation"
+            [showWeekNumbers]="showWeekNumbers" [outsideDays]="outsideDays">
+            </ngb-datepicker>
+
+            <hr/>
+
+            <form class="row row-cols-sm-auto">
+              <div class="col-12">
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd"
+                        name="dp" [displayMonths]="displayMonths" [navigation]="navigation" [outsideDays]="outsideDays"
+                        [showWeekNumbers]="showWeekNumbers" ngbDatepicker #d="ngbDatepicker">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </form>
+
+            <hr/>
+
+            <div class="d-flex flex-wrap align-content-between p-2">
+              <select class="form-select" [(ngModel)]="displayMonths">
+              <option [ngValue]="1">One month</option>
+              <option [ngValue]="2">Two months</option>
+              <option [ngValue]="3">Three months</option>
+              </select>
+
+              <select class="form-select" [(ngModel)]="navigation">
+              <option value="none">Without navigation</option>
+              <option value="select">With select boxes</option>
+              <option value="arrows">Without select boxes</option>
+              </select>
+
+              <select class="form-select" [(ngModel)]="showWeekNumbers">
+              <option [ngValue]="true">Week numbers</option>
+              <option [ngValue]="false">No week numbers</option>
+              </select>
+
+              <select class="form-select" [(ngModel)]="outsideDays">
+              <option value="visible">Visible outside days</option>
+              <option value="hidden">Hidden outside days</option>
+              <option value="collapsed">Collapsed outside days</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div>
+            <p>Example of the range selection</p>
+
+            <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+            </ngb-datepicker>
+
+            <ng-template #t let-date let-focused="focused">
+              <span class="custom-day"
+                    [class.focused]="focused"
+                    [class.range]="isRange(date)"
+                    [class.faded]="isHovered(date) || isInside(date)"
+                    (mouseenter)="hoveredDate = date"
+                    (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+              </span>
+            </ng-template>
+
+            <hr>
+
+            <pre>From: {{ fromDate | json }} </pre>
+            <pre>To: {{ toDate | json }} </pre>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Dropdown</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem>Action - 1</button>
+                  <button ngbDropdownItem>Another Action</button>
+                  <button ngbDropdownItem>Something else is here</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col text-end">
+              <div ngbDropdown placement="top-end" class="d-inline-block">
+                <button type="button" class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Toggle dropup</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                  <button ngbDropdownItem>Action - 1</button>
+                  <button ngbDropdownItem>Another Action</button>
+                  <button ngbDropdownItem>Something else is here</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-outline-primary" id="dropdownForm1" ngbDropdownToggle>Toggle dropdown</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                  <form class="px-4 py-3">
+                    <div class="mb-3">
+                      <label for="exampleDropdownFormEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" autocomplete="username">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleDropdownFormPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" autocomplete="current-password">
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                      <label class="form-check-label" for="dropdownCheck">
+                        Remember me
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <button type="button" ngbDropdownItem>New around here? Sign up</button>
+                  <button type="button" ngbDropdownItem>Forgot password?</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr/>
+
+          <p>
+            Set the <code>container</code> property to "body" to have the dropdown menu be appended to the body instead of
+            where it belongs. This option is useful if the dropdown is defined inside an element that clips its contents (i.e.
+            <code>overflow: hidden</code>).
+          </p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Items</th>
+                <th scope="col">Actions</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  Item
+                  <div>
+                    <small class="text-muted">Both &ldquo;Actions&rdquo; table cells define an overflow hidden</small>
+                  </div>
+                </td>
+                <td class="overflow-hidden">
+                  <div ngbDropdown container="body">
+                    <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+                    <div ngbDropdownMenu>
+                      <button ngbDropdownItem>Edit</button>
+                      <button ngbDropdownItem>Duplicate</button>
+                      <button ngbDropdownItem>Move</button>
+                      <div class="dropdown-divider"></div>
+                      <button ngbDropdownItem>Delete</button>
+                    </div>
+                  </div>
+                  <small class="text-muted">Dropdown uses container "body"</small>
+                </td>
+                <td class="overflow-hidden">
+                  <div ngbDropdown>
+                    <button type="button" class="btn btn-outline-primary btn-sm" ngbDropdownToggle>Actions</button>
+                    <div ngbDropdownMenu>
+                      <button ngbDropdownItem>Edit</button>
+                      <button ngbDropdownItem>Duplicate</button>
+                      <button ngbDropdownItem>Move</button>
+                      <div class="dropdown-divider"></div>
+                      <button ngbDropdownItem>Delete</button>
+                    </div>
+                  </div>
+                  <small class="text-muted">Default dropdown</small>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <hr/>
+
+          <p>
+            This example shows how to disable some dropdown items for various a11y use-cases.
+            Please try keyboard navigation with <kbd>Tab</kbd> and <kbd>Arrow Up/Down</kbd> to better understand
+            the behavior
+          </p>
+
+
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-outline-primary" id="dropdown1" ngbDropdownToggle>Toggle dropdown</button>
+            <div ngbDropdownMenu aria-labelledby="dropdown1">
+              <!-- items as buttons -->
+              <button ngbDropdownItem>Button (enabled)</button>
+              <button ngbDropdownItem [disabled]="true">Button (disabled, not focusable)</button>
+              <button ngbDropdownItem [class.disabled]="true" aria-disabled="true">Button (disabled, focusable)</button>
+
+              <!-- items as links -->
+              <a href="#" ngbDropdownItem>Link (enabled)</a>
+              <a href="#" ngbDropdownItem [disabled]="true">Link (disabled, not focusable)</a>
+              <a href="#" ngbDropdownItem [class.disabled]="true" aria-disabled="true">Link (disabled, focusable)</a>
+            </div>
+          </div>
+
+          <hr>
+
+          <p>Bootstrap split buttons and dropdowns on button groups are supported with the existing dropdown directives.</p>
+
+          <div class="btn-group me-3">
+            <button type="button" class="btn btn-outline-success">Plain ol' button</button>
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>Drop me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button ngbDropdownItem>One</button>
+                <button ngbDropdownItem>Two</button>
+                <button ngbDropdownItem>Four!</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group me-3">
+            <button type="button" class="btn btn-primary">Split me</button>
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button ngbDropdownItem>One</button>
+                <button ngbDropdownItem>Two</button>
+                <button ngbDropdownItem>Four!</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group me-3">
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-outline-danger" ngbDropdownToggle>Select me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button ngbDropdownItem>One</button>
+                <button ngbDropdownItem>Two</button>
+                <button ngbDropdownItem>Four!</button>
+              </div>
+            </div>
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-outline-success" ngbDropdownToggle>Or me</button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button ngbDropdownItem>One</button>
+                <button ngbDropdownItem>Two</button>
+                <button ngbDropdownItem>Four!</button>
+              </div>
+            </div>
+          </div>
+
+
+          <hr>
+
+          <p>You can easily control dropdowns programmatically using the exported dropdown instance.</p>
+
+          <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+            <button type="button" class="btn btn-outline-primary me-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownManual">
+              <button ngbDropdownItem>Action - 1</button>
+              <button ngbDropdownItem>Another Action</button>
+              <button ngbDropdownItem>Something else is here</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-outline-success me-2" (click)="$event.stopPropagation(); myDrop.open();">Open from outside</button>
+          <button type="button" class="btn btn-outline-danger me-2" (click)="$event.stopPropagation(); myDrop.close();">Close from outside</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+         <h2>Modals</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal title</h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                  <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+              </ng-template>
+
+              <ng-template #longContent let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal title</h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+              </ng-template>
+
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openWindowCustomClass(content)">Modal with window custom class</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openBackDropCustomClass(content)">Modal with backdrop custom class</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openSm(content)">Small modal</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openLg(content)">Large modal</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openXl(content)">Extra large modal</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openFullscreen(content)">Fullscreen modal</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openScrollableContent(longContent)">Modal scrollable content</button>
+              <button class="btn btn-outline-primary mb-2 me-2" (click)="openModalDialogCustomClass(content)">Modal with dialog custom class</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Offcanvas</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <ng-template #contentoc let-offcanvas>
+                <div class="offcanvas-header">
+                  <h4 class="offcanvas-title">Offcanvas title</h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <p>One fine body&hellip;</p>
+                  <div class="text-end">
+                    <button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Close click')">Close</button>
+                  </div>
+                </div>
+              </ng-template>
+
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openEnd(contentoc)">Right position</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openTop(contentoc)">Top position</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openBottom(contentoc)">Bottom position</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openNoBackdrop(contentoc)">No backdrop</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openScroll(contentoc)">Scrolling of main content enabled</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openNoKeyboard(contentoc)">Escape does not dismiss</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openNoAnimation(contentoc)">No animation</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openCustomBackdropClass(contentoc)">Custom backdrop class</button>
+              <button class="btn btn-lg btn-outline-primary mb-2 me-2" (click)="openCustomPanelClass(contentoc)">Custom panel class</button>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Pagination</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <p>Default pagination:</p>
+              <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+
+              <p>No direction links:</p>
+              <ngb-pagination [collectionSize]="70" [(page)]="page" [directionLinks]="false"></ngb-pagination>
+
+              <p>With boundary links:</p>
+              <ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+
+              <hr>
+
+              <pre>Current page: {{page}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>Restricted size, no rotation:</p>
+              <ngb-pagination [collectionSize]="120" [(page)]="pageAdvanced" [maxSize]="5" [boundaryLinks]="true"></ngb-pagination>
+
+              <p>Restricted size with rotation:</p>
+              <ngb-pagination [collectionSize]="120" [(page)]="pageAdvanced" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+
+              <p>Restricted size with rotation and no ellipses:</p>
+              <ngb-pagination [collectionSize]="120" [(page)]="pageAdvanced" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+
+              <hr>
+
+              <pre>Current page: {{pageAdvanced}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>A pagination with customized links:</p>
+              <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Custom pagination">
+                <ng-template ngbPaginationPrevious>Prev</ng-template>
+                <ng-template ngbPaginationNext>Next</ng-template>
+                <ng-template ngbPaginationNumber let-p>{{ getPageSymbol(p) }}</ng-template>
+              </ngb-pagination>
+              <hr>
+
+              <p>A pagination with customized pages:</p>
+              <ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true">
+                  <ng-template ngbPaginationPages let-page let-pages="pages">
+                      <li class="ngb-custom-pages-item" *ngIf="pages.length > 0">
+                          <div class="mb-3 d-flex flex-nowrap px-2">
+                            <label
+                                id="paginationInputLabel"
+                                for="paginationInput"
+                                class="col-form-label me-2 ms-1"
+                            >Page</label>
+                            <input #i
+                                type="text"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                class="form-control custom-pages-input"
+                                id="paginationInput"
+                                [value]="page"
+                                (keyup.enter)="selectPage(i.value)"
+                                (blur)="selectPage(i.value)"
+                                (input)="formatInput($any($event).target)"
+                                aria-labelledby="paginationInputLabel paginationDescription"
+                                style="width: 2.5rem"
+                            />
+                            <span id="paginationDescription" class="col-form-label text-nowrap px-2">
+                                of {{pages.length}}</span>
+                          </div>
+                      </li>
+                  </ng-template>
+              </ngb-pagination>
+              <hr>
+
+              <pre>Current page: {{page}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Popover</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <button type="button" class="btn btn-outline-secondary me-2" placement="top"
+                      ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on top">
+                Popover on top
+              </button>
+
+              <button type="button" class="btn btn-outline-secondary me-2" placement="end"
+                      ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on right">
+                Popover on right
+              </button>
+
+              <button type="button" class="btn btn-outline-secondary me-2" placement="bottom"
+                      ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on bottom">
+                Popover on bottom
+              </button>
+
+              <button type="button" class="btn btn-outline-secondary me-2" placement="start"
+                      ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on left">
+                Popover on left
+              </button>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                Popovers can contain any arbitrary HTML, Angular bindings and even directives!
+                Simply enclose desired content or title in a <code>&lt;ng-template&gt;</code> element.
+              </p>
+
+              <ng-template #popContent>Hello, <b>{{name}}</b>!</ng-template>
+              <ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+              <button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+                I've got markup and bindings in my popover!
+              </button>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>As for some other popup-based widgets, you can set the popover to close automatically upon some events.</p>
+              <p>In the following examples, they will all close on <code>Escape</code> as well as:</p>
+
+              <ul>
+                <li class="mb-2">
+                  click inside:
+                  <button
+                    type="button" class="btn btn-outline-secondary" popoverTitle="Pop title"
+                    [autoClose]="'inside'" ngbPopover="Click inside or press Escape to close"
+                  >
+                      Click to toggle
+                  </button>
+                </li>
+
+                <li class="mb-2">
+                  click outside:
+                  <button
+                    type="button" class="btn btn-outline-secondary" popoverTitle="Pop title"
+                    [autoClose]="'outside'" ngbPopover="Click outside or press Escape to close"
+                  >
+                    Click to toggle
+                  </button>
+                </li>
+
+                <li class="mb-2">
+                    all clicks:
+                    <button
+                      type="button" class="btn btn-outline-secondary" popoverTitle="Pop title"
+                      [autoClose]="true" ngbPopover="Click anywhere or press Escape to close (try the toggling element too)"
+                      #popover3="ngbPopover"
+                    >
+                        Click to toggle
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-outline-secondary me-2" (click)="popover3.toggle()">
+                      Click to toggle the external popover
+                    </button>
+                  </li>
+              </ul>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                When using non-manual triggers, you can control the delay to open and close the popover through the <code>openDelay</code> and
+                <code>closeDelay</code> properties. Note that the <code>autoClose</code> feature does not use the close delay, it closes the popover immediately.
+              </p>
+
+              <div class="buttons">
+                <button type="button" class="btn btn-outline-secondary me-2"
+                  ngbPopover="You see, I show up after 300ms and disappear after 500ms!"
+                  [openDelay]="300" [closeDelay]="500" triggers="mouseenter:mouseleave">
+                  Hover 300ms here
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary me-2"
+                  ngbPopover="You see, I show up after 1s and disappear after 2s!"
+                  [openDelay]="1000" [closeDelay]="2000" triggers="mouseenter:mouseleave">
+                  Hover 1s here
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                You can optionally pass in a custom class via <code>popoverClass</code>
+              </p>
+
+              <button type="button" class="btn btn-outline-secondary" ngbPopover="Nice class!"
+                popoverClass="popover-with-custom-class">
+                Popover with custom class
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Rating</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-rating [(rate)]="currentRate"></ngb-rating>
+              <hr>
+              <pre>Rate: <b>{{currentRate}}</b></pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+              <hr>
+              <pre>
+              Selected: <b>{{selected}}</b>
+              Hovered: <b>{{hovered}}</b>
+              </pre>
+              <button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}" (click)="readonly = !readonly">
+                {{ readonly ? "readonly" : "editable"}}
+              </button>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>Custom rating template provided as child element</p>
+
+              <ngb-rating [(rate)]="currentRate">
+                <ng-template let-fill="fill" let-index="index">
+                  <span class="tstar" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                </ng-template>
+              </ngb-rating>
+              <hr>
+              <pre>Rate: <b>{{currentRate}}</b></pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>Custom rating template provided via a variable. Shows fine-grained rating display</p>
+
+              <ng-template #tDec let-fill="fill">
+                <span class="starDec" [class.full]="fill === 100">
+                  <span class="halfDec" [style.width.%]="fill">&hearts;</span>&hearts;
+                </span>
+              </ng-template>
+
+              <ngb-rating [(rate)]="currentRateDec" [starTemplate]="tDec" [readonly]="true" [max]="5"></ngb-rating>
+
+              <hr>
+              <pre>Rate: <b>{{currentRateDec}}</b></pre>
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="currentRateDec = 1.35">1.35</button>
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="currentRateDec = 4.72">4.72</button>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>NgModel and reactive forms can be used without the 'rate' binding</p>
+
+              <div class="mb-3">
+                <ngb-rating [formControl]="ctrl"></ngb-rating>
+                <div class="form-text small">
+                  <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
+                  <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
+                </div>
+              </div>
+
+              <hr>
+              <pre>Model: <b>{{ ctrl.value }}</b></pre>
+              <button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} me-2" (click)="toggle()">
+                {{ ctrl.disabled ? "control disabled" : " control enabled" }}
+              </button>
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="ctrl.setValue(null)">Clear</button>
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Table</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <ngbd-table-complete></ngbd-table-complete>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Timepicker</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+              <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+                  Meridian - {{meridian ? "ON" : "OFF"}}
+              </button>
+              <hr>
+              <pre>Selected time: {{time | json}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-timepicker [(ngModel)]="timeTp" [seconds]="seconds"></ngb-timepicker>
+              <button class="btn btn-sm btn-outline-{{seconds ? 'success' : 'danger'}}" (click)="toggleSeconds()">
+                  Seconds - {{seconds ? "ON" : "OFF"}}
+              </button>
+              <hr>
+              <pre>Selected time: {{timeTp | json}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-timepicker [(ngModel)]="timeCs" [seconds]="true"
+              [hourStep]="hourStep" [minuteStep]="minuteStep" [secondStep]="secondStep"></ngb-timepicker>
+
+              <div class="row">
+                  <div class="col-sm-3">
+                      <label for="changeHourStep">Hour Step</label>
+                      <input id="changeHourStep" type="number" class="form-control form-control-sm" [(ngModel)]="hourStep" />
+                  </div>
+                  <div class="col-sm-3">
+                      <label for="changeMinuteStep">Minute Step</label>
+                      <input id="changeMinuteStep" type="number" class="form-control form-control-sm" [(ngModel)]="minuteStep" />
+                  </div>
+                  <div class="col-sm-3">
+                      <label for="changeSecondStep">Second Step</label>
+                      <input id="changeSecondStep" type="number" class="form-control form-control-sm" [(ngModel)]="secondStep" />
+                  </div>
+              </div>
+              <hr>
+              <pre>Selected time: {{timeCs | json}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>Illustrates custom validation, you have to select time between 12:00 and 13:59</p>
+
+              <div class="mb-3">
+                <ngb-timepicker [formControl]="ctrlCs" required></ngb-timepicker>
+                <div *ngIf="ctrlCs.valid" class="small form-text text-success">Great choice</div>
+                <div *ngIf="ctrlCs.errors" class="small form-text text-danger">
+                  <div *ngIf="ctrlCs.errors['required']">Select some time during lunchtime</div>
+                  <div *ngIf="ctrlCs.errors['tooLate']">Oh no, it's way too late</div>
+                  <div *ngIf="ctrlCs.errors['tooEarly']">It's a bit too early</div>
+                </div>
+              </div>
+
+              <hr>
+              <pre>Selected time: {{ctrlCs.value | json}}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngbd-timepicker-adapter></ngbd-timepicker-adapter>
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Template</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <div>
+                <h6>Body only</h6>
+                <ngb-toast [autohide]="false">
+                  I am a simple static toast.
+                </ngb-toast>
+
+                <h6 class="mt-4">With a text header</h6>
+                <ngb-toast *ngIf="show" header="Hello" [autohide]="false" (hidden)="show=false">
+                  I am a simple static toast with a header.
+                </ngb-toast>
+              </div>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-toast *ngIf="show" [autohide]="false" (hidden)="show=false">
+                <ng-template ngbToastHeader>
+                  <div class="me-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                      <path
+                        d="M16.896 10l-4.896-8-4.896 8-7.104-4 3 11v5h18v-5l3-11-7.104 4zm-11.896 10v-2h14v2h-14zm14.2-4h-14.4l-1.612-5.909 4.615 2.598 4.197-6.857 4.197 6.857 4.615-2.598-1.612 5.909z" />
+                    </svg>
+                    <strong class="mx-1">Fancy</strong>header here
+                  </div>
+
+                </ng-template>
+                Hello, I am toast. Have you noticed my header has been generated from a Template?
+              </ngb-toast>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngb-toast *ngIf="show" header="Click my close icon →" [autohide]="false" (hidden)="closeToast()">
+                If you close me, I will automatically re-appear after a few seconds.
+              </ngb-toast>
+              <p *ngIf="!show">I'll be back!</p>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                In this demo, you can show a toast by clicking the button below. It will hide itself after a 5 seconds delay unless you simply hover it with your mouse.
+              </p>
+              <button class="btn btn-primary" (click)="showToast = true">
+                Click me to show a toast
+              </button>
+              <hr *ngIf="showToast">
+              <ngb-toast
+                *ngIf="showToast"
+                header="Autohide can be cancelled"
+                [delay]="5000"
+                [autohide]="autohide"
+                (mouseenter)="autohide = false"
+                (mouseleave)="autohide = true"
+                (hide)="showToast = false; autohide = true"
+                [class.bg-warning]="!autohide"
+              >
+                <div *ngIf="autohide">
+                  Try to mouse hover me.
+                </div>
+                <div *ngIf="!autohide">
+                  I will remain visible until you leave again.
+                </div>
+              </ngb-toast>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <ngbd-toast-global></ngbd-toast-global>
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Tooltip</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              <button type="button" class="btn btn-outline-secondary me-2" placement="top" ngbTooltip="Tooltip on top">
+                Tooltip on top
+              </button>
+              <button type="button" class="btn btn-outline-secondary me-2" placement="end" ngbTooltip="Tooltip on right">
+                Tooltip on right
+              </button>
+              <button type="button" class="btn btn-outline-secondary me-2" placement="bottom" ngbTooltip="Tooltip on bottom">
+                Tooltip on bottom
+              </button>
+              <button type="button" class="btn btn-outline-secondary me-2" placement="start" ngbTooltip="Tooltip on left">
+                Tooltip on left
+              </button>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                Tooltips can contain any arbitrary HTML, Angular bindings and even directives!
+                Simply enclose desired content in a <code>&lt;ng-template&gt;</code> element.
+              </p>
+
+              <ng-template #tipContent>Hello, <b>{{name}}</b>!</ng-template>
+              <button type="button" class="btn btn-outline-secondary" [ngbTooltip]="tipContent">
+                I've got markup and bindings in my tooltip!
+              </button>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                You can easily override open and close triggers by specifying event names (separated by <code>:</code>) in the <code>triggers</code> property.
+              </p>
+
+              <button type="button" class="btn btn-outline-secondary" ngbTooltip="You see, I show up on click!" triggers="click:blur">
+                Click me!
+              </button>
+
+              <hr>
+              <p>
+                Alternatively you can take full manual control over tooltip opening / closing events.
+              </p>
+
+              <div class="buttons">
+                <button type="button" class="btn btn-outline-secondary me-2" ngbTooltip="What a great tip!" [autoClose]="false" triggers="manual" #tooltip="ngbTooltip" (click)="tooltip.open()">
+                  Click me to open a tooltip
+                </button>
+                <button type="button" class="btn btn-outline-secondary me-2" (click)="tooltip.close()">
+                  Click me to close a tooltip
+                </button>
+              </div>
+
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>As for some other popup-based widgets, you can set the tooltip to close automatically upon some events.</p>
+              <p>In the following examples, they will all close on <code>Escape</code> as well as:</p>
+
+              <ul>
+                <li class="mb-2">
+                  click inside:
+                  <button
+                    type="button" class="btn btn-outline-secondary"
+                    triggers="click" [autoClose]="'inside'" ngbTooltip="Click inside or press Escape to close"
+                  >
+                      Click to toggle
+                  </button>
+                </li>
+
+                <li class="mb-2">
+                  click outside:
+                  <button
+                    type="button" class="btn btn-outline-secondary"
+                    triggers="click" [autoClose]="'outside'" ngbTooltip="Click outside or press Escape to close"
+                  >
+                    Click to toggle
+                  </button>
+                </li>
+
+                <li class="mb-2">
+                    all clicks:
+                    <button
+                      type="button" class="btn btn-outline-secondary"
+                      triggers="click" [autoClose]="true" ngbTooltip="Click anywhere or press Escape to close (try the toggling element too)"
+                      #tooltip3="ngbTooltip"
+                    >
+                        Click to toggle
+                    </button>
+
+                    &nbsp;
+
+                    <button type="button" class="btn btn-outline-secondary me-2" (click)="tooltip3.toggle()">
+                      Click to toggle the external tooltip
+                    </button>
+                  </li>
+              </ul>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                You can optionally pass in a context when manually triggering a tooltip.
+              </p>
+
+              <ng-template #tipContentLang let-greeting="greeting">{{greeting}}, <b>{{name}}</b>!</ng-template>
+
+              <div class="buttons">
+                <button
+                  type="button" class="btn btn-outline-secondary me-2"
+                  [ngbTooltip]="tipContentLang"
+                  triggers="manual" #tooltipfr1="ngbTooltip" (click)="toggleWithGreeting(tooltipfr1, 'Bonjour')"
+                >
+                  French
+                </button>
+                <button
+                  type="button" class="btn btn-outline-secondary me-2"
+                  [ngbTooltip]="tipContentLang"
+                  triggers="manual" #tooltipdu2="ngbTooltip" (click)="toggleWithGreeting(tooltipdu2, 'Gutentag')"
+                >
+                  German
+                </button>
+                <button
+                  type="button" class="btn btn-outline-secondary me-2"
+                  [ngbTooltip]="tipContentLang"
+                  triggers="manual" #tooltipen3="ngbTooltip" (click)="toggleWithGreeting(tooltipen3, 'Hello')"
+                >
+                  English
+                </button>
+              </div>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                When using non-manual triggers, you can control the delay to open and close the tooltip through the <code>openDelay</code> and
+                <code>closeDelay</code> properties. Note that the <code>autoClose</code> feature does not use the close delay, it closes the tooltip immediately.
+              </p>
+
+              <div class="buttons">
+                <button type="button" class="btn btn-outline-secondary me-2"
+                  ngbTooltip="You see, I show up after 300ms and disappear after 500ms!"
+                  [openDelay]="300" [closeDelay]="500">
+                  Hover 300ms here
+                </button>
+                <button type="button" class="btn btn-outline-secondary me-2"
+                  ngbTooltip="You see, I show up after 1s and disappear after 2s!"
+                  [openDelay]="1000" [closeDelay]="2000">
+                  Hover 1s here
+                </button>
+              </div>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                Set the <code>container</code> property to "body" to have the tooltip be appended to the body instead of the triggering element's parent. This option is useful if the element triggering the tooltip is inside an element that clips its contents (i.e. <code>overflow: hidden</code>).
+              </p>
+
+              <div class="row">
+                <div class="col-auto">
+                  <div class="card px-1 py-5">
+                    <button type="button" class="btn btn-outline-secondary mb-2" placement="top"
+                            ngbTooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      Default tooltip
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" placement="bottom"
+                            ngbTooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." container="body">
+                      Tooltip appended to body
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>
+                You can optionally pass in a custom class via <code>tooltipClass</code>
+              </p>
+
+              <button type="button" class="btn btn-outline-secondary" ngbTooltip="Nice class!"
+                tooltipClass="my-custom-class">
+                Tooltip with custom class
+              </button>
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Typeahead</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+              A typeahead example that gets values from a static <code>string[]</code>
+              <ul>
+                <li><code>debounceTime</code> operator</li>
+                <li>kicks in only if 2+ characters typed</li>
+                <li>limits to 10 results</li>
+              </ul>
+
+              <label for="typeahead-basic">Search for a state:</label>
+              <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="typeaheadmodel" [ngbTypeahead]="searchTypeahead"/>
+              <hr>
+              <pre>Model: {{ typeaheadmodel | json }}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              It is possible to get the focus events with the current input value to emit results on focus with a great flexibility.
+
+              In this simple example, a search is done no matter the content of the input:
+
+              <ul>
+                <li>on empty input all options will be taken</li>
+                <li>otherwise options will be filtered against the search term</li>
+                <li>it will limit the display to 10 results in all cases</li>
+              </ul>
+
+              <label for="typeahead-focus">Search for a state:</label>
+              <input
+                id="typeahead-focus"
+                type="text"
+                class="form-control"
+                [(ngModel)]="typeaheadmodel2"
+                [ngbTypeahead]="searchTypeahead2"
+                (focus)="focus$.next($any($event).target.value)"
+                (click)="click$.next($any($event).target.value)"
+                #instance="ngbTypeahead"
+              />
+              <hr>
+              <pre>Model: {{ typeaheadmodel2 | json }}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>A typeahead example that uses a formatter function for string results</p>
+
+              <label for="typeahead-format">Search for a state:</label>
+              <input id="typeahead-format" type="text" class="form-control" [(ngModel)]="typeaheadmodel3" [ngbTypeahead]="searchTypeahead3" [resultFormatter]="formatter" />
+              <hr>
+              <pre>Model: {{ typeaheadmodel3 | json }}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              A typeahead example that gets values from the <code>WikipediaService</code>
+              <ul>
+                <li>remote data retrieval</li>
+                <li><code>debounceTime</code> operator</li>
+                <li><code>tap</code> operator</li>
+                <li><code>distinctUntilChanged</code> operator</li>
+                <li><code>switchMap</code> operator</li>
+                <li><code>catch</code> operator to display an error message in case of connectivity issue</li>
+              </ul>
+
+              <fieldset>
+                <div class="mb-3 row">
+                  <label for="typeahead-http" class="col-xs-3 col-sm-auto col-form-label">Search for a wiki page:</label>
+                  <div class="col">
+                      <input id="typeahead-http" type="text" class="form-control" [class.is-invalid]="searchFailed" [(ngModel)]="typeaheadmodel4" [ngbTypeahead]="searchTypeahead4" placeholder="Wikipedia search" />
+                    <small *ngIf="searching" class="form-text text-muted">searching...</small>
+                    <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+                  </div>
+                </div>
+              </fieldset>
+              <hr>
+              <pre>Model: {{ typeaheadmodel4 | json }}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>A typeahead example that uses a custom template for results display, an object as the model,
+                and the highlight directive to highlight the term inside the custom template.
+              </p>
+
+              <ng-template #rt let-r="result" let-t="term">
+                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="me-1" style="width: 16px">
+                <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+              </ng-template>
+
+              <div class="mb-3 row">
+                <label for="typeahead-template" class="col-xs-3 col-sm-auto col-form-label">Search for a state:</label>
+                <div class="col">
+                  <input id="typeahead-template" type="text" class="form-control col" [(ngModel)]="typeaheadmodel5" [ngbTypeahead]="searchTypeahead5" [resultTemplate]="rt"
+                    [inputFormatter]="formatterTypeahead5" />
+                </div>
+              </div>
+              <hr>
+              <pre>Model: {{ typeaheadmodel5 | json }}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <p>Prevents manual text entry and updates the model only when an item from suggestions is selected</p>
+
+              <div class="mb-3 row">
+                <label for="typeahead-prevent-manual-entry" class="col-xs-3 col-sm-auto col-form-label">Search for a state:</label>
+                <div class="col">
+                  <input id="typeahead-prevent-manual-entry" type="text" class="form-control"
+                    [(ngModel)]="typeaheadmodel6"
+                    [ngbTypeahead]="searchTypeahead6"
+                    [inputFormatter]="formatterTypeahead6"
+                    [resultFormatter]="formatterTypeahead6"
+                    [editable]='false' />
+                </div>
+              </div>
+              <hr>
+              <pre>Model: {{ typeaheadmodel6 | json }}</pre>
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2>Template</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col">
+
+
+
+              <hr>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <ng-template #demoModal let-modal>
