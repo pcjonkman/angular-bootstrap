@@ -54,7 +54,7 @@ imports: [
 - Clone the repository.
 
 ```shell
-git clone https://github.com/pcjonkman/app.git
+git clone https://github.com/pcjonkman/angular-bootstrap.git
 ```
 
 - Install the dependencies.
